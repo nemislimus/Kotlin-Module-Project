@@ -31,8 +31,8 @@ open class Menu<T>(var list: MutableList<T>) {
         val resultInput: Int
         while (true) {
             val userCommand = Scanner(System.`in`).nextLine()
-            if ( userCommand.trim().isEmpty() || userCommand.hasCharTrash() ) {
-                println("$ANSI_RED\nWARNING: Следует ввести цифру из меню!$ANSI_RESET\nПовторите ввод команды:")
+            if ( userCommand.trim().isEmpty() || userCommand.trim().any { !it.isDigit() } ) {
+                println("$ANSI_RED\nWARNING: Следует ввести только цифру из меню!$ANSI_RESET\nПовторите ввод команды:")
                 menuLineStrings.forEach { println(it) }
                 continue
             } else if ( userCommand.getDigitsToInt() > (menuLineStrings.size -1) ) {

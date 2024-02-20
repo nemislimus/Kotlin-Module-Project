@@ -8,8 +8,8 @@ class NoteMenuScreen(list: MutableList<Note>): Menu<Note>(list) {
         list.add(Note(takeTitle))
         println("Напишите текст заметки:")
         val takeNoteText = userInputTitles()
-        list.last.text = takeNoteText
-        list.last.setContent()
+        list.last().text = takeNoteText
+        list.last().setContent()
         println("Вы создали заметку \"$takeTitle\"")
         resetAllLines()
     }
